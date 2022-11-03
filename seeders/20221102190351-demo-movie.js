@@ -9,22 +9,30 @@ module.exports = {
         {
           genre: "action",
           duration: 200,
-          articleId: 1
+          articleId: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           genre: "horror",
           duration: 180,
-          articleId: 2
+          articleId: 2,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           genre: "science fiction",
           duration: 220,
-          articleId: 3
+          articleId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           genre: "romantic",
           duration: 210,
-          articleId: 4
+          articleId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}

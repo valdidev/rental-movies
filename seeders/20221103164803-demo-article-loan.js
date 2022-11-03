@@ -1,42 +1,45 @@
 'use strict';
 
+// TODO - validation error
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert(
-      'articlesLoans', 
+      'articlesloans', 
       [
         {
           articleId: 1,
-          loanId: 1
+          loanId: 1,
+          
         },
         {
           articleId: 2,
-          loanId: 1
+          loanId: 1,
         },
         {
           articleId: 1,
-          loanId: 2
+          loanId: 2,
         },
         {
           articleId: 3,
-          loanId: 2
+          loanId: 2,
         },
         {
           articleId: 3,
-          loanId: 3
+          loanId: 3,
         },
         {
           articleId: 5,
-          loanId: 3
+          loanId: 3,
         },
         {
           articleId: 5,
-          loanId: 3
+          loanId: 3,
         },
         {
           articleId: 6,
-          loanId: 4
+          loanId: 4,
         }
       ], {});
   },

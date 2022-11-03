@@ -12,6 +12,8 @@ module.exports = {
           rated: 8,
           year: "2000-04-25",
           poster: "url img gladiator",
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           title: "it",
@@ -19,6 +21,8 @@ module.exports = {
           rated: 4,
           year: "2017-09-08",
           poster: "url img it",
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           title: "star wars",
@@ -26,6 +30,8 @@ module.exports = {
           rated: 7,
           year: "1977-09-07",
           poster: "url img gladiator",
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           title: "moulin rouge",
@@ -33,6 +39,8 @@ module.exports = {
           rated: 5,
           year: "2001-10-11",
           poster: "url moulin rouge",
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           title: "how i met your mother",
@@ -40,6 +48,8 @@ module.exports = {
           rated: 7,
           year: "2005-09-19",
           poster: "url img how",
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           title: "the simpsons",
@@ -47,6 +57,8 @@ module.exports = {
           rated: 9,
           year: "1989-12-17",
           poster: "url simpsons",
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
        
       ],

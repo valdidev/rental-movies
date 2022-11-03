@@ -1,0 +1,5 @@
+// FIND MOVIE BY ID
+GET http:/localhost:3000/movies/id/2
+
+// FIND MOVIE BY TITLE
+GET http:/localhost:3000/movies/title/it

@@ -7,10 +7,14 @@ module.exports = {
       'rols', 
       [
         {
-          member: 'admin'
+          member: 'admin',
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
-          member: 'user'
+          member: 'user',
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ], {});
    

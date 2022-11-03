@@ -1,0 +1,4 @@
+// FIND SERIE BY ID
+GET http:/localhost:3000/series/id/2
+
+GET http:/localhost:3000/series/title/the simpsons

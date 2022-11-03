@@ -1,10 +1,13 @@
 const express = require('express');
-const articlesRouter = require('./routes/articles.router');
+const moviesRouter = require('./routes/movies.router');
+const seriesRouter = require('./routes/series.router');
+
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/articles', articlesRouter);
+app.use('/movies', moviesRouter);
+app.use('/series', seriesRouter);
 
 module.exports = app;
