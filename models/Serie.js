@@ -10,7 +10,7 @@ Serie.init(
       autoIncrement: true,
       primaryKey: true,
     },
-    onAirUntil: {
+    premiereNewChapter: {
       type: DataTypes.DATEONLY,
       allowNull: false,
     },

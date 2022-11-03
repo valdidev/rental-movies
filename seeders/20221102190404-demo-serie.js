@@ -7,13 +7,13 @@ module.exports = {
         'series', 
         [
           {
-            onAirUntil: '2022-12-20',
+            premiereNewChapter: '2022-12-20',
             toTheaterOrCinema: false,
             articleId: 5
           },
           {
-            onAirUntil: '2024-10-25',
-            toTheaterOrCinema: false,
+            premiereNewChapter: '2022-12-22',
+            toTheaterOrCinema: true,
             articleId: 6
           }
         ], {});
