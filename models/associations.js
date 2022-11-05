@@ -4,6 +4,7 @@ const Serie = require("./Serie");
 const Rol = require("./Rol");
 const User = require("./User");
 const Loan = require("./Loan");
+const ArticleLoans = require("./ArticleLoans");
 
 // ARTICLES MOVIES 1:N
 Article.hasMany(Movie);
@@ -42,5 +43,7 @@ Loan.belongsTo(User,
 );
 
 // ARTICLES LOANS N:M
-Article.belongsToMany(Loan, { through: "ArticlesLoans" });
-Loan.belongsToMany(Article, { through: "ArticlesLoans" });
+/* Article.belongsToMany(Loan, { through: "ArticlesLoans" });
+Loan.belongsToMany(Article, { through: "ArticlesLoans" }); */
+Article.belongsToMany(Loan, { through: ArticleLoans });
+Loan.belongsToMany(Article, { through: ArticleLoans });

@@ -1,0 +1,9 @@
+// NEW ORDER
+POST http:/localhost:3000/rentals/loan
+Content-Type: application/json
+{
+    "start_loan": "2022-11-05 13:30:00",
+    "loan_ends": "2022-11-20 13:30:00",
+    "userId": 2,
+    "articleId": 7
+}

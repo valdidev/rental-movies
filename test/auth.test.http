@@ -1,0 +1,26 @@
+// REGISTER USER
+POST http:/localhost:3000/auth/register
+Content-Type: application/json
+{
+    "name": "sonia",
+    "lastname": "cruz",
+    "nick": "scruz",
+    "email": "scruz@gmail.com",
+    "rolId": 2
+}
+
+// FIND USER BY ID
+GET http:/localhost:3000/auth/id/5
+
+// MODIFY USER PROFILE
+PUT http:/localhost:3000/auth/id/5
+Content-Type: application/json
+{
+  "name": "marcos",
+  "lastname": "tarazona",
+  "nick": "mtarazona",
+  "email": "mtarazona@gmail.com"
+}
+
+// DELETE USER PROFILE (ONLY ADMIN)
+DELETE http:/localhost:3000/auth/id/6
