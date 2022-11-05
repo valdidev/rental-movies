@@ -11,35 +11,45 @@ module.exports = {
         {
           articleId: 1,
           loanId: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
           
         },
         {
           articleId: 2,
           loanId: 1,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           articleId: 1,
           loanId: 2,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           articleId: 3,
           loanId: 2,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           articleId: 3,
           loanId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           articleId: 5,
           loanId: 3,
-        },
-        {
-          articleId: 5,
-          loanId: 3,
+          createdAt: new Date(),
+          updatedAt: new Date()
         },
         {
           articleId: 6,
           loanId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ], {});
   },

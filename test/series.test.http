@@ -1,4 +1,13 @@
 // FIND SERIE BY ID
 GET http:/localhost:3000/series/id/2
 
-GET http:/localhost:3000/series/title/the simpsons
+// FIND SERIE BY TITLE
+GET http:/localhost:3000/series/title/malcom
+// FIND SERIES TOP RATED
+GET http:/localhost:3000/series/top
+
+// FIND SERIES WITH DEBUT ON CINEMA OR THEATER
+GET http:/localhost:3000/series/debut
+
+// FIND SERIES WITH CHAPTER PREMIERES IN THE NEXT SEVEN DAYS
+GET http:/localhost:3000/series/premiere

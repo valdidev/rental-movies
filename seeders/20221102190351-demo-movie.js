@@ -33,6 +33,20 @@ module.exports = {
           articleId: 4,
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          genre: "horror",
+          duration: 190,
+          articleId: 7,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          genre: "action",
+          duration: 240,
+          articleId: 11,
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
       ],
       {}

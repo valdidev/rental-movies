@@ -20,6 +20,27 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
         },
+        {
+          premiereNewChapter: "2022-11-04",
+          toTheaterOrCinema: true,
+          articleId: 8,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          premiereNewChapter: "2022-11-10",
+          toTheaterOrCinema: false,
+          articleId: 9,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          premiereNewChapter: "2022-11-15",
+          toTheaterOrCinema: false,
+          articleId: 10,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
       ],
       {}
     );

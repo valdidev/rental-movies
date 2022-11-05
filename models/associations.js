@@ -42,5 +42,5 @@ Loan.belongsTo(User,
 );
 
 // ARTICLES LOANS N:M
-Article.belongsToMany(Loan, { through: "ArticlesLoans", timestamps: false });
-Loan.belongsToMany(Article, { through: "ArticlesLoans", timestamps: false });
+Article.belongsToMany(Loan, { through: "ArticlesLoans" });
+Loan.belongsToMany(Article, { through: "ArticlesLoans" });

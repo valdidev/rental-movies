@@ -60,6 +60,51 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
         },
+        {
+          title: "hereditary",
+          isMovie: true,
+          rated: 7,
+          year: "2018-10-15",
+          poster: "url hereditary",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          title: "big bang theory",
+          isMovie: false,
+          rated: 8,
+          year: "2014-08-02",
+          poster: "url big bang",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          title: "malcom",
+          isMovie: false,
+          rated: 4,
+          year: "2006-10-02",
+          poster: "url malcom",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          title: "fresh prince",
+          isMovie: false,
+          rated: 9,
+          year: "1996-04-06",
+          poster: "url fresh",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          title: "blacklight",
+          isMovie: true,
+          rated: 9,
+          year: "2022-11-02",
+          poster: "url black",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        }
        
       ],
       {}

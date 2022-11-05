@@ -1,5 +1,8 @@
 const SerieModel = require("../models/Serie");
 const ArticleModel = require("../models/Article");
+const moment = require('moment');
+moment().format('s');
+const { Op } = require("sequelize");
 
 const getSerieByIdController = async (req, res) => {
   try {
@@ -33,7 +36,49 @@ const getSerieByNameController = async (req, res) => {
   }
 };
 
+const getSeriesTopRatedController = async (req, res) => {
+  try {
+    let topSeries = await ArticleModel.findAll({
+      where: {
+        rated: {
+          [Op.between]: [8, 10],
+        },
+        isMovie: 0,
+      },
+    });
+
+    res.json(topSeries);
+  } catch (error) {
+    res.status(404).json({ message: "Movie Not Found" });
+  }
+};
+
+const getDebutingSeries = async (req, res) => {
+  const debutingSeries = await SerieModel.findAll({
+    where: {
+      toTheaterOrCinema: 1
+    }
+  });
+
+  const debutingArticles = await ArticleModel.findAll({
+    where: {
+      id: debutingSeries.map((serie) => {
+        return serie.articleId;
+      }),
+    },
+  });
+  res.json(debutingArticles);
+};
+
+const getPremiereSeries = async (req, res) => {
+  const premiereSeries = await SerieModel.findAll({});
+  res.json(premiereSeries);
+}
+
 module.exports = {
   getSerieByIdController,
-  getSerieByNameController
+  getSerieByNameController,
+  getSeriesTopRatedController,
+  getDebutingSeries,
+  getPremiereSeries
 };

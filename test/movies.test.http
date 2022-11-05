@@ -3,3 +3,9 @@ GET http:/localhost:3000/movies/id/2
 
 // FIND MOVIE BY TITLE
 GET http:/localhost:3000/movies/title/it
+
+// FIND MOVIES TOP RATED
+GET http:/localhost:3000/movies/top
+
+// FIND MOVIES BY GENRE
+GET http:/localhost:3000/movies/genre/action
