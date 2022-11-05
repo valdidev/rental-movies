@@ -1,4 +1,6 @@
 const express = require('express');
+const authBearerMiddleware = require('../middlewares/auth.middlewares');
+
 const rentalsRouter = express.Router();
 
 const {
@@ -11,6 +13,7 @@ const {
 rentalsRouter.post('/loan', newLoanController);
 rentalsRouter.patch('/loan/:loanId', modifyLoanController)
 rentalsRouter.get('/loan/:userId', getAllUserLoansController)
-rentalsRouter.get('/loans', getAllLoansController)
+// only admin
+rentalsRouter.get('/loans', authBearerMiddleware, getAllLoansController)
 
 module.exports = rentalsRouter;

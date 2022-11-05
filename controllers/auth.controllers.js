@@ -4,9 +4,11 @@ const {
 
 } = require('../services/auth.services');
 
+const jsonwebtoken = require('jsonwebtoken');
+
 
 const authRegisterController = async (req, res) => {
-    const body = req.body;
+  /*   const body = req.body;
     // validate password
   try {
     assertValidPasswordService(body.password);
@@ -22,9 +24,9 @@ const authRegisterController = async (req, res) => {
     console.error(error);
     res.status(400).json({ message: "Email is invalid: " + error.message });
     return;
-  }
+  } */
 
-   /*  try {
+    try {
         const {name, lastname, nick, email, rolId} = req.body;
         const newUser = await UserModel.create({
             name,
@@ -37,7 +39,7 @@ const authRegisterController = async (req, res) => {
     } catch (error) {
         res.send(error);
     }
-     */
+    
 };
 
 const authFindUserByIdController = async (req, res) => {
@@ -79,9 +81,38 @@ const authDeleteUserController = async (req, res) => {
     res.send(`user with ID: ${id} deleted`);
 };
 
+const authLoginController = async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        const userFound = await UserModel.findOne({where: {email}});
+        if(!userFound) {
+            res.status(404).json({message: "User not found" });
+            return;
+        }
+
+        const secret = process.env.JWT_SECRET;
+
+        const jwt = jsonwebtoken.sign({
+            rolId: userFound.rolId,
+            nick: userFound.nick
+        }, secret);
+    
+        res.status(200).json({
+            message: "Login successful",
+            jwt: jwt
+        });
+
+    } catch (error) {
+        
+    }
+    
+};
+
 module.exports = {
     authRegisterController,
     authFindUserByIdController,
     authModifyUserController,
-    authDeleteUserController
+    authDeleteUserController,
+    authLoginController
 }

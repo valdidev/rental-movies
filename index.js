@@ -1,3 +1,4 @@
+require('dotenv').config({path:'.env'});
 const sequelize = require('./database/db');
 const app = require('./app');
 require('./models/associations');

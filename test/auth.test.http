@@ -2,11 +2,18 @@
 POST http:/localhost:3000/auth/register
 Content-Type: application/json
 {
-    "name": "sonia",
-    "lastname": "cruz",
-    "nick": "scruz",
-    "email": "scruz@gmail.com",
+    "name": "julian",
+    "lastname": "picapiedra",
+    "nick": "jpica",
+    "email": "jpica@gmail.com",
     "rolId": 2
+}
+
+// LOGIN
+POST http:/localhost:3000/auth/login
+Content-Type: application/json
+{
+  "email": "admin@root.com"
 }
 
 // FIND USER BY ID
@@ -23,4 +30,5 @@ Content-Type: application/json
 }
 
 // DELETE USER PROFILE (ONLY ADMIN)
-DELETE http:/localhost:3000/auth/id/6
+DELETE http:/localhost:3000/auth/id/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xJZCI6MSwibmljayI6ImFkbWluIiwiaWF0IjoxNjY3Njc3MTkxfQ.DINdHrQkeDpCIUR1L7fB9h6uJ5Fvbij6kYmRd6fHsM4
