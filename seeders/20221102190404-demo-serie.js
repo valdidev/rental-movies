@@ -41,6 +41,13 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
         },
+        {
+          premiereNewChapter: "2022-11-08",
+          toTheaterOrCinema: false,
+          articleId: 12,
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
       ],
       {}
     );

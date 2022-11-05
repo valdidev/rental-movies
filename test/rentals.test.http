@@ -2,8 +2,21 @@
 POST http:/localhost:3000/rentals/loan
 Content-Type: application/json
 {
-    "start_loan": "2022-11-05 13:30:00",
-    "loan_ends": "2022-11-20 13:30:00",
-    "userId": 2,
-    "articleId": 7
+    "start_loan": "2022-11-05 18:30:00",
+    "loan_ends": "2022-11-20 18:30:00",
+    "userId": 4,
+    "articleId": 10
 }
+
+// MODIFY ORDER
+PATCH http:/localhost:3000/rentals/loan/5
+Content-Type: application/json
+{
+    "articleId": 2
+}
+
+// GET ALL ORDERS ONE USER
+GET http:/localhost:3000/rentals/loan/2
+
+// GET ALL ORDERS IN DB
+GET http:/localhost:3000/rentals/loans

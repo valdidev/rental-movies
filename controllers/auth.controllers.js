@@ -1,8 +1,30 @@
 const UserModel = require("../models/User");
+const {
+ assertValidPasswordService,
+
+} = require('../services/auth.services');
 
 
 const authRegisterController = async (req, res) => {
-    try {
+    const body = req.body;
+    // validate password
+  try {
+    assertValidPasswordService(body.password);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ message: "Invalid password: " + error.message });
+    return;
+  }
+  // validate email is valid
+  try {
+    assertEmailIsValid(body.email);
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ message: "Email is invalid: " + error.message });
+    return;
+  }
+
+   /*  try {
         const {name, lastname, nick, email, rolId} = req.body;
         const newUser = await UserModel.create({
             name,
@@ -15,7 +37,7 @@ const authRegisterController = async (req, res) => {
     } catch (error) {
         res.send(error);
     }
-    
+     */
 };
 
 const authFindUserByIdController = async (req, res) => {

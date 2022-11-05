@@ -9,8 +9,10 @@ const {
       } = require('../controllers/auth.controllers');
 
 authRouter.post('/register', authRegisterController);
+authRouter.post('/register', authRegisterController);
 authRouter.get('/id/:id', authFindUserByIdController);
 authRouter.put('/id/:id', authModifyUserController);
+// only admin
 authRouter.delete('/id/:id', authDeleteUserController);
 
 module.exports = authRouter;

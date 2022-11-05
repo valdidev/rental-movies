@@ -1,6 +1,5 @@
-const ArticleLoans = require('../models/ArticleLoans');
+const ArticleLoansModel = require('../models/ArticleLoans');
 const LoanModel = require('../models/Loan');
-// const ArticleLoanModel = require('../models/')
 
 
 const newLoanController = async (req, res) => {
@@ -15,7 +14,7 @@ const newLoanController = async (req, res) => {
         userId
     });
 
-    await ArticleLoans.create({
+    await ArticleLoansModel.create({
         articleId,
         loanId: newLoan.id
     });
@@ -23,7 +22,39 @@ const newLoanController = async (req, res) => {
     res.send('new loan added');
 };
 
+const modifyLoanController = async (req, res) => {
+    const { loanId } = req.params;
+
+    const articlesId = req.body;
+
+    const orderModified = await ArticleLoansModel.update({articlesId: articlesId},{
+        where: {
+            loanId: loanId
+        }
+    });
+    
+    res.json(orderModified);
+};
+
+const getAllUserLoansController = async (req, res) => {
+    const { userId } = req.params;
+
+    const userLoans = await LoanModel.findAll({
+        where: {
+            userId
+        }
+    });
+    res.json(userLoans);
+};
+
+const getAllLoansController = async (req, res) => {
+    const articlesAndLoans = await ArticleLoansModel.findAll();
+    res.json(articlesAndLoans)
+};
 
 module.exports = {
     newLoanController,
-}
+    modifyLoanController,
+    getAllUserLoansController,
+    getAllLoansController,
+};

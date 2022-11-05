@@ -104,6 +104,15 @@ module.exports = {
           poster: "url black",
           createdAt: new Date(),
           updatedAt: new Date()
+        },
+        {
+          title: "futurama",
+          isMovie: false,
+          rated: 8,
+          year: "2003-03-05",
+          poster: "url futurama",
+          createdAt: new Date(),
+          updatedAt: new Date()
         }
        
       ],

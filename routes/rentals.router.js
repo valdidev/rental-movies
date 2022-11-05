@@ -1,10 +1,16 @@
 const express = require('express');
-const rentRouter = express.Router();
+const rentalsRouter = express.Router();
 
 const {
     newLoanController,
+    modifyLoanController,
+    getAllUserLoansController,
+    getAllLoansController,
       } = require('../controllers/rentals.controllers');
 
-rentRouter.post('/loan', newLoanController);
+rentalsRouter.post('/loan', newLoanController);
+rentalsRouter.patch('/loan/:loanId', modifyLoanController)
+rentalsRouter.get('/loan/:userId', getAllUserLoansController)
+rentalsRouter.get('/loans', getAllLoansController)
 
-module.exports = rentRouter;
+module.exports = rentalsRouter;

@@ -71,7 +71,13 @@ const getDebutingSeries = async (req, res) => {
 };
 
 const getPremiereSeries = async (req, res) => {
-  const premiereSeries = await SerieModel.findAll({});
+  const premiereSeries = await SerieModel.findAll({
+    where: {
+      premiereNewChapter: {
+        [Op.between]: [new Date(), new Date().setDate(new Date().getDate() + 7)]
+      }
+    }
+  });
   res.json(premiereSeries);
 }
 
