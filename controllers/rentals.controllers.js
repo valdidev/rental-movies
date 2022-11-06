@@ -3,49 +3,74 @@ const LoanModel = require('../models/Loan');
 
 
 const newLoanController = async (req, res) => {
-    const { start_loan,
-        loan_ends,
-        userId,
-        articleId } = req.body;
+    try {
+        const { start_loan,
+            loan_ends,
+            userId,
+            articleId } = req.body;
 
-    const newLoan = await LoanModel.create({
-        start_loan,
-        loan_ends,
-        userId
-    });
-
-    if (articleId.length == 1) {
-        await ArticleLoansModel.create({
-            articleId: articleId[0],
-            loanId: newLoan.id
+        // loan table register
+        const newLoan = await LoanModel.create({
+            start_loan,
+            loan_ends,
+            userId
         });
 
-        return res.send('new loan simple added');
-    };
+        // check simple or multiple articles 
+        // simple
+        if (articleId.length == 1) {
+            await ArticleLoansModel.create({
+                articleId: articleId[0],
+                loanId: newLoan.id
+            });
 
-    for(let i = 0; i < articleId.length; i++){
-        await ArticleLoansModel.create({
-            articleId: articleId[i],
-            loanId: newLoan.id
-        });
+            return res.send('new loan simple added');
+        };
+        // multiple
+        for (let i = 0; i < articleId.length; i++) {
+            await ArticleLoansModel.create({
+                articleId: articleId[i],
+                loanId: newLoan.id
+            });
+        }
+
+        res.send('multiple loan multiple added');
+    } catch (error) {
+        res.send(error)
     }
-
-    res.send('multiple loan multiple added');
-
 };
 
 const modifyLoanController = async (req, res) => {
-    const { loanId } = req.params;
+    try {
+        const { loanId } = req.params;
+    const newArticles = req.body.articlesId;
 
-    const articlesId = req.body;
-
-    const orderModified = await ArticleLoansModel.update({ articlesId: articlesId }, {
+    // find all articles for that loan
+    let loans = await ArticleLoansModel.findAll({
         where: {
-            loanId: loanId
+            loanId
         }
     });
 
-    res.json(orderModified);
+    if(!loans.length){
+        return res.status(404).send({message: "No loans with that ID"});
+    }
+    
+    // update values
+    for (let i = 0; i < loans.length; i++) {
+        await ArticleLoansModel.update(newArticles[i],{
+            where: {
+                articleId: loans[i].articleId
+            }
+        });
+    }
+
+    res.status(200).json({message: "Loan updated successfully"});
+
+    } catch (error) {
+        res.status(500).json({message: error.message});
+    }
+    
 };
 
 const getAllUserLoansController = async (req, res) => {
@@ -57,6 +82,8 @@ const getAllUserLoansController = async (req, res) => {
                 userId
             }
         });
+
+        if (!userLoans.length) return res.status(404).json({message: 'Loans not found'});
 
         res.json(userLoans);
 

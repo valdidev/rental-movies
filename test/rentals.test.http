@@ -9,14 +9,17 @@ Content-Type: application/json
 }
 
 // MODIFY ORDER
-PATCH http:/localhost:3000/rentals/loan/5
+PATCH http:/localhost:3000/rentals/loan/22
 Content-Type: application/json
 {
-    "articleId": 2
+    "articlesId": [
+        {"articleId": 10},
+        {"articleId": 11}
+    ]
 }
 
 // GET ALL ORDERS ONE USER
-GET http:/localhost:3000/rentals/loan/2
+GET http:/localhost:3000/rentals/loan/1
 
 // GET ALL ORDERS IN DB (ONLY ADMIN)
 GET http:/localhost:3000/rentals/loans
