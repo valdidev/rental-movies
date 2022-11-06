@@ -1,7 +1,5 @@
 const SerieModel = require("../models/Serie");
 const ArticleModel = require("../models/Article");
-const moment = require('moment');
-moment().format('s');
 const { Op } = require("sequelize");
 
 const getSerieByIdController = async (req, res) => {

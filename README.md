@@ -13,7 +13,8 @@ Backend for application of rental movies and series
 ## Features
 
 - CRUD of users, movies and series
-- Log in as administrator to delete users or see all the content of the     database
+- Log in as administrator to delete users or see all the content of the database
+- See the logs of error, warning and info loggeds in the **logs** folder
 
 ## Installation
 
@@ -91,7 +92,7 @@ If you want to have mocked data you can use
 npx sequelize-cli db:seed:all
 ```
 
-# Test the features 
+# Test the app 
 
 In the **test** folder you will find test files as a client
 - auth.test.http

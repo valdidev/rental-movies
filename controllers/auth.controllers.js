@@ -1,8 +1,4 @@
 const UserModel = require("../models/User");
-const {
-    assertValidPasswordService,
-
-} = require('../services/auth.services');
 
 const jsonwebtoken = require('jsonwebtoken');
 
