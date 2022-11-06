@@ -2,10 +2,10 @@
 POST http:/localhost:3000/rentals/loan
 Content-Type: application/json
 {
-    "start_loan": "2022-11-05 18:30:00",
-    "loan_ends": "2022-11-20 18:30:00",
+    "start_loan": "2022-11-06 12:30:00",
+    "loan_ends": "2022-11-21 12:30:00",
     "userId": 4,
-    "articleId": 10
+    "articleId": [6, 9]
 }
 
 // MODIFY ORDER

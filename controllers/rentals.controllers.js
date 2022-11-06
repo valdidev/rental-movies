@@ -14,12 +14,24 @@ const newLoanController = async (req, res) => {
         userId
     });
 
-    await ArticleLoansModel.create({
-        articleId,
-        loanId: newLoan.id
-    });
+    if (articleId.length == 1) {
+        await ArticleLoansModel.create({
+            articleId: articleId[0],
+            loanId: newLoan.id
+        });
 
-    res.send('new loan added');
+        return res.send('new loan simple added');
+    };
+
+    for(let i = 0; i < articleId.length; i++){
+        await ArticleLoansModel.create({
+            articleId: articleId[i],
+            loanId: newLoan.id
+        });
+    }
+
+    res.send('multiple loan multiple added');
+
 };
 
 const modifyLoanController = async (req, res) => {
