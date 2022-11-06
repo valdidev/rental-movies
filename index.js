@@ -12,8 +12,8 @@ const PORT = process.env.SERVICE_PORT;
 
 async function connectDB() {
     try {
-        await sequelize.sync();
-        // await sequelize.authenticate();
+        // await sequelize.sync();
+        await sequelize.authenticate();
         app.listen(PORT, () => console.log(`Server running on port: ${PORT}`.bgGreen.black));
     } catch (error) {
         winston.error(`Status: ${error.status || 500} Message: ${error.message}`)
