@@ -14,7 +14,7 @@ async function connectDB() {
     try {
         // await sequelize.sync({force:true});
         await sequelize.authenticate();
-        app.listen(PORTs, () => console.log(`Server running on port: ${PORT}`.bgGreen.black));
+        app.listen(PORT, () => console.log(`Server running on port: ${PORT}`.bgGreen.black));
     } catch (error) {
         winston.error(`Status: ${error.status || 500} Message: ${error.message}`)
         console.error('Unable to connect to the database:'.bgRed, error);
