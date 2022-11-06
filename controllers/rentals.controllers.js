@@ -4,11 +4,11 @@ const LoanModel = require('../models/Loan');
 
 const newLoanController = async (req, res) => {
     const { start_loan,
-            loan_ends,
-            userId,
-            articleId } = req.body;
+        loan_ends,
+        userId,
+        articleId } = req.body;
 
-   const newLoan = await LoanModel.create({
+    const newLoan = await LoanModel.create({
         start_loan,
         loan_ends,
         userId
@@ -18,7 +18,7 @@ const newLoanController = async (req, res) => {
         articleId,
         loanId: newLoan.id
     });
- 
+
     res.send('new loan added');
 };
 
@@ -27,29 +27,41 @@ const modifyLoanController = async (req, res) => {
 
     const articlesId = req.body;
 
-    const orderModified = await ArticleLoansModel.update({articlesId: articlesId},{
+    const orderModified = await ArticleLoansModel.update({ articlesId: articlesId }, {
         where: {
             loanId: loanId
         }
     });
-    
+
     res.json(orderModified);
 };
 
 const getAllUserLoansController = async (req, res) => {
-    const { userId } = req.params;
+    try {
+        const { userId } = req.params;
 
-    const userLoans = await LoanModel.findAll({
-        where: {
-            userId
-        }
-    });
-    res.json(userLoans);
+        const userLoans = await LoanModel.findAll({
+            where: {
+                userId
+            }
+        });
+
+        res.json(userLoans);
+
+    } catch (error) {
+
+        return res.status(404).json({ message: error.message });
+    }
+
 };
 
 const getAllLoansController = async (req, res) => {
-    const articlesAndLoans = await ArticleLoansModel.findAll();
-    res.json(articlesAndLoans)
+    try {
+        const articlesAndLoans = await ArticleLoansModel.findAll();
+        res.json(articlesAndLoans)
+    } catch (error) {
+        return res.status(500).json({ message: error.message });
+    }
 };
 
 module.exports = {

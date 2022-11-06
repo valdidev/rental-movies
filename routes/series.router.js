@@ -15,5 +15,8 @@ seriesRouter.get('/top', getSeriesTopRatedController);
 seriesRouter.get('/debut', getDebutingSeries);
 seriesRouter.get('/premiere', getPremiereSeries);
 
+seriesRouter.all('/*', (req, res) => res.status(404).json({message: "404 - Resource Not Found"}));
+
+
 
 module.exports = seriesRouter;

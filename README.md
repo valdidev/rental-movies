@@ -27,11 +27,8 @@ npm install
 
 # Start up
 ### 1. Create the SQL database
-And call it
-```sh
-rentalmovies
-```
-Go to the **.env** file and modify it with your settings
+
+Go to the **.env.example** file and rename it to **.env** and modify it with your settings
 
 ```sh
 JWT_SECRET="add jtw secret"
@@ -45,11 +42,33 @@ DB_NAME="add database name"
 DB_DIALECT="add database dialect"
 ```
 
+Create database and call it
+```sh
+rentalmovies
+```
+or throw
+```sh
+npx sequelize-cli db:create
+```
+
 ### 2. Populate the database
 Two ways:
 ***
 
 ##### 2.1 Migrations
+Rename config/**example.config.json** to **config.json** and and modify it with your settings
+```sh
+{
+  "development": {
+    "username": "db username",
+    "password": "db password",
+    "database": "db database",
+    "host": "db host",
+    "dialect": "db dialect",
+    "port": "db port"
+  }
+}
+```
 Launch the migrations
 ```sh
 npx sequelize-cli db:migrate
@@ -58,12 +77,12 @@ npx sequelize-cli db:migrate
 or
 ***
 ##### 2.2 Sequelize models
-Go to index.js and change sequelize.authenticate()
-_Remember to change it back if you want to keep the changes_
+Go to **index.js** and change sequelize.authenticate() to
 
 ```sh
 sequelize.sync()
 ```
+_Remember to change it back if you want to keep the changes_
 ***
 ##### 2.3 Seeders
 If you want to have mocked data you can use
@@ -80,6 +99,10 @@ In the **test** folder you will find test files as a client
 - series.test.http
 - rentals.test.http
 
-# License
+## License
 
 MIT
+
+
+## Author
+Fernando Valdivielso - @valdidev

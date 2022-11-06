@@ -19,4 +19,6 @@ authRouter.put('/id/:id', authModifyUserController);
 // only admin
 authRouter.delete('/id/:id', authBearerMiddleware, authDeleteUserController);
 
+authRouter.all('/*', (req, res) => res.status(404).json({message: "404 - Resource Not Found"}));
+
 module.exports = authRouter;

@@ -1,8 +1,8 @@
 // FIND MOVIE BY ID
-GET http:/localhost:3000/movies/id/2
+GET http:/localhost:3000/movies/id/7
 
 // FIND MOVIE BY TITLE
-GET http:/localhost:3000/movies/title/it
+GET http:/localhost:3000/movies/title/the simpsons
 
 // FIND MOVIES TOP RATED
 GET http:/localhost:3000/movies/top

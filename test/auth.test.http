@@ -32,3 +32,4 @@ Content-Type: application/json
 // DELETE USER PROFILE (ONLY ADMIN)
 DELETE http:/localhost:3000/auth/id/5
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xJZCI6MSwibmljayI6ImFkbWluIiwiaWF0IjoxNjY3Njc3MTkxfQ.DINdHrQkeDpCIUR1L7fB9h6uJ5Fvbij6kYmRd6fHsM4
+

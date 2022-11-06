@@ -2,9 +2,6 @@ const MovieModel = require("../models/Movie");
 const ArticleModel = require("../models/Article");
 const { Op } = require("sequelize");
 
-// TODO - separar los servicios
-// const { findById } = require("../services/articles.services");
-
 const getMovieByIdController = async (req, res) => {
   try {
     const { id } = req.params;
@@ -13,9 +10,11 @@ const getMovieByIdController = async (req, res) => {
     const { title, rated, year, poster } = await ArticleModel.findByPk(
       articleId
     );
-    res.json({ title, year, rated, poster });
+    if(movieFounded){
+      res.json({ title, year, rated, poster });
+    }
   } catch (error) {
-    res.status(404).json({ message: "Movie Not Found" });
+    res.status(204).json({ message: "Movie Not Found" });
   }
 };
 
@@ -28,10 +27,8 @@ const getMovieByTitleController = async (req, res) => {
     const { isMovie } = movieFounded;
     if (isMovie == 1) {
       res.json(movieFounded);
-    } else {
-      // TODO - ¿Cómo hago que vaya al catch si falla?
-      res.send("That is a serie");
     }
+    throw new Error('Movie not found');
   } catch (error) {
     res.status(404).json({ message: "Movie Not Found" });
   }

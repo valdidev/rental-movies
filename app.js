@@ -14,5 +14,6 @@ app.use('/auth', authRouter);
 app.use('/movies', moviesRouter);
 app.use('/series', seriesRouter);
 app.use('/rentals', rentalsRouter);
+app.use('/*', (req, res) => res.status(404).json({message: "404 - Resource Not Found"}));
 
 module.exports = app;

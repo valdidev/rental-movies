@@ -1,9 +1,11 @@
-require('dotenv').config({path:'.env'});
+require('dotenv').config({ path: '.env' });
 const sequelize = require('./database/db');
 const app = require('./app');
+
 require('./models/associations');
 
-const PORT = 3000;
+
+const PORT = process.env.SERVICE_PORT;
 
 async function connectDB() {
     try {
