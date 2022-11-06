@@ -20,7 +20,7 @@ Content-Type: application/json
 GET http:/localhost:3000/auth/id/5
 
 // MODIFY USER PROFILE
-PUT http:/localhost:3000/auth/id/5
+PUT http:/localhost:3000/auth/id/4
 Content-Type: application/json
 {
   "name": "marcos",
@@ -30,6 +30,6 @@ Content-Type: application/json
 }
 
 // DELETE USER PROFILE (ONLY ADMIN)
-DELETE http:/localhost:3000/auth/id/5
+DELETE http:/localhost:3000/auth/id/6
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xJZCI6MSwibmljayI6ImFkbWluIiwiaWF0IjoxNjY3Njc3MTkxfQ.DINdHrQkeDpCIUR1L7fB9h6uJ5Fvbij6kYmRd6fHsM4
 
