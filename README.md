@@ -98,6 +98,9 @@ In the **test** folder you will find test files as a client
 - movies.test.http
 - series.test.http
 - rentals.test.http
+***
+# EER Diagram
+![er-rental-movies](https://user-images.githubusercontent.com/96445737/200185110-c2df7c28-ab65-46f1-8d11-a07396be61ad.png)
 
 ## License
 
